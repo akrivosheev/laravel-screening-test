@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      MYSQL_DATABASE: toyota
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - 3313:3306
+    volumes:
+      - db:/var/lib/mysql
+
+  php:
+    build: ./php
+    ports:
+      - '8087:80'
+    volumes:
+      - ../:/var/www/html
+    depends_on:
+      - mysql
+
+  gulp:
+    build: ./node
+    volumes:
+      - ../:/app
+
+volumes:
+  db:
