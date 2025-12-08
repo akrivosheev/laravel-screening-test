@@ -3,6 +3,7 @@ FROM php:8.2-apache
 RUN a2enmod rewrite
 
 COPY php.ini /usr/local/etc/php/
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN apt-get update \
   && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev git mariadb-client libzip-dev zip \
   && docker-php-ext-install pdo_mysql mysqli gd iconv \
