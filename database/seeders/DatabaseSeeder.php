@@ -15,10 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            EventSeeder::class,
-            MenuItemSeeder::class,
-            UserSeeder::class,
-            OrderSeeder::class,
+//            EventSeeder::class,
+//            MenuItemSeeder::class,
+//            UserSeeder::class,
+//            OrderSeeder::class,
+            ServicesSeeder::class,
+            ServiceWorkingHoursSeeder::class,
+            ServiceBreaksSeeder::class,
+            ServiceOffDatesSeeder::class,
+            TimeSlotsSeeder::class,
         ]);
     }
 }
